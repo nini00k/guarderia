@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuelas Infantiles en Sevilla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          tangerine: '#F08C21',
+          butter: '#F2D88F',
+          blush: '#E36888',
+          sea: '#6698CC',
+          matcha: '#B4B534',
+          paper: '#FAFAFA'
+        },
+        fontFamily: {
+          display: ['"Fredoka One"', 'cursive'],
+          body: ['Quicksand', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #FAFAFA;
+    font-family: 'Quicksand', sans-serif;
+    background-image: linear-gradient(rgba(250, 250, 250, 0.78), rgba(250, 250, 250, 0.78)), url('imagenes/stock/doodle.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: top left;
+    background-attachment: fixed;
+  }
+  h1, h2, h3, .font-display { font-family: 'Fredoka One', cursive; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  .cta-shape {
+    clip-path: polygon(6% 8%, 96% 0%, 100% 78%, 92% 100%, 4% 96%, 0% 20%);
+  }
+  .cta-shape-2 {
+    clip-path: polygon(4% 0%, 100% 6%, 96% 92%, 100% 100%, 6% 100%, 0% 82%);
+  }
+
+  /* Recorta la propia foto del hero en forma de "montañitas" en su borde
+     inferior. Así, donde antes había un parche blanco sólido, ahora se ve
+     directamente el fondo (doodle) de la página, igual que ya ocurre con
+     la ola de la sección de contacto. */
+  .hero-clip {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - 40px),
+      96.67% calc(100% - 58px),
+      93.33% calc(100% - 35px),
+      89.58% calc(100% - 68px),
+      85.83% calc(100% - 30px),
+      82.08% calc(100% - 60px),
+      78.33% calc(100% - 32px),
+      74.58% calc(100% - 65px),
+      70.83% calc(100% - 28px),
+      67.08% calc(100% - 60px),
+      63.33% calc(100% - 35px),
+      59.58% calc(100% - 70px),
+      55.83% calc(100% - 32px),
+      52.08% calc(100% - 58px),
+      48.33% calc(100% - 30px),
+      44.58% calc(100% - 62px),
+      40.83% calc(100% - 35px),
+      37.08% calc(100% - 68px),
+      33.33% calc(100% - 28px),
+      29.58% calc(100% - 60px),
+      25.83% calc(100% - 32px),
+      22.08% calc(100% - 65px),
+      18.33% calc(100% - 25px),
+      14.58% calc(100% - 55px),
+      10.83% calc(100% - 30px),
+      7.08% calc(100% - 70px),
+      3.33% calc(100% - 35px),
+      0% calc(100% - 50px)
+    );
+  }
+
+  .blob-card { position: relative; filter: drop-shadow(0 12px 20px rgba(0,0,0,0.12)); transition: transform .35s ease; }
+  .blob-card:hover { transform: translateY(-6px) rotate(-1deg) scale(1.02); }
+
+  .gallery-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .gallery-item:hover .gallery-img { transform: scale(1.08); }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid #6698CC;
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body class="text-gray-700 antialiased">
+
+<!-- ============ HERO ============ -->
+<header class="relative overflow-hidden min-h-[92vh] flex items-center">
+  <div class="hero-clip absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=1800&q=80"
+         alt="Niños jugando en el patio de una escuela infantil"
+         class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-butter/70 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-tangerine/20 mix-blend-soft-light"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6 md:px-10 py-24 w-full">
+    <p class="font-body font-semibold text-white/95 tracking-wide text-sm md:text-base mb-3 drop-shadow-sm">
+    </p>
+    <h1 class="font-display text-white drop-shadow-md text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] max-w-3xl">
+      Cuatro escuelas, una misma manera de 
+      <span class="inline-block -rotate-2 text-tangerine bg-white/90 px-4 py-1 rounded-[2rem] my-1">crecer</span>
+    - en Sevilla
+    </h1>
+    <p class="font-body text-white/95 text-lg md:text-xl mt-6 max-w-xl drop-shadow-sm">
+  Creamos espacios donde los más pequeños exploran, juegan y aprenden con libertad,
+  acompañados por un equipo educativo cercano que respeta su ritmo, los escucha y los conoce desde el primer día.
+    </p>
+    <div class="flex flex-wrap gap-5 mt-10">
+      <a href="#centros"
+         class="cta-shape inline-block bg-blush text-white font-display text-lg px-10 py-4 hover:scale-105 hover:bg-[#d85778] transition-transform duration-300 shadow-lg">
+        Nosotros
+      </a>
+      <a href="#contacto"
+         class="cta-shape-2 inline-block bg-sea text-white font-display text-lg px-10 py-4 hover:scale-105 hover:bg-[#5688bb] transition-transform duration-300 shadow-lg">
+        Contacto
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CENTROS ============ -->
+<section id="centros" class="relative py-24 px-6 md:px-10 bg-transparent">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mb-16">
+      <span class="font-body font-bold text-tangerine tracking-wide uppercase text-sm">Nuestros centros</span>
+      <h2 class="font-display text-3xl md:text-5xl text-gray-800 mt-2 leading-tight">
+        Cuatro rincones de Sevilla, cuatro familias
+      </h2>
+      <p class="font-body text-gray-500 mt-4 text-lg">
+        Cada escuela tiene su propio carácter, pero comparte el mismo cariño, los mismos
+        espacios pensados para explorar y el mismo equipo educativo cercano.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Centro 1 - C.E.I. Marta Mateu - Tangerine -->
+      <a href="plantilla-centro.html" class="blob-card aspect-square block group focus:outline-none focus-visible:ring-4 focus-visible:ring-tangerine/40">
+        <svg viewBox="-200 -200 400 400" class="absolute inset-0 w-full h-full overflow-visible">
+          <path fill="#F08C21" d="M145,-135.5C185.3,-97.6,211.3,-41.8,207.2,12.7C203.1,67.2,168.9,120.4,121.2,154.3C73.5,188.2,12.3,202.8,-42.6,189.2C-97.5,175.6,-146.1,133.8,-173.3,81.1C-200.5,28.4,-206.3,-35.2,-181.7,-84.9C-157.1,-134.6,-102.1,-170.4,-46.8,-177C8.5,-183.6,104.7,-173.4,145,-135.5Z" transform="scale(1.05)"/>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+          <h3 class="font-display text-white text-2xl mb-2">C.E.I. Marta Mateu</h3>
+          <p class="font-body text-white/95 text-sm flex items-center gap-1.5 justify-center mb-1">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-4.5-7-8-7-11a7 7 0 1114 0c0 3-2.5 6.5-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            C. Amador de los Ríos, 20, 22, 41003
+          </p>
+          <p class="font-body text-white/90 text-sm flex items-center gap-1.5 justify-center">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>
+            7:30 – 17:00
+          </p>
+        </div>
+      </a>
+
+      <!-- Centro 2 - Nervión - Butter -->
+      <a href="plantilla-centro.html" class="blob-card aspect-square block group focus:outline-none focus-visible:ring-4 focus-visible:ring-tangerine/40">
+        <svg viewBox="-200 -200 400 400" class="absolute inset-0 w-full h-full overflow-visible">
+          <path fill="#EBC45B" d="M141.2,-138.6C185.7,-98.2,217.4,-40.8,210.1,13.7C202.8,68.2,156.5,119.8,107.5,152.1C58.5,184.4,6.8,197.4,-44.3,186.2C-95.4,175,-145.9,139.6,-174.5,89C-203.1,38.4,-209.8,-27.4,-185.3,-78.9C-160.8,-130.4,-105.1,-167.6,-49.2,-173.8C6.7,-180,96.7,-179,141.2,-138.6Z" transform="scale(1.05)"/>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+          <h3 class="font-display text-white text-2xl mb-2">C.E.I. Mis Mochuelos</h3>
+          <p class="font-body text-white/95 text-sm flex items-center gap-1.5 justify-center mb-1">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-4.5-7-8-7-11a7 7 0 1114 0c0 3-2.5 6.5-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            C. el Gordito, 1, 41007
+          </p>
+          <p class="font-body text-white/90 text-sm flex items-center gap-1.5 justify-center">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>
+            7:30 – 17:30
+          </p>
+        </div>
+      </a>
+
+      <!-- Centro 3 - Los Remedios - Blush -->
+      <a href="plantilla-centro.html" class="blob-card aspect-square block group focus:outline-none focus-visible:ring-4 focus-visible:ring-tangerine/40">
+        <svg viewBox="-200 -200 400 400" class="absolute inset-0 w-full h-full overflow-visible">
+          <path fill="#E36888" d="M152.8,-148.5C198.3,-108.9,228.9,-48.5,221.7,9.3C214.5,67.1,169.5,122.3,118.4,156C67.3,189.7,10.1,201.9,-43.8,188.7C-97.7,175.5,-148.3,136.9,-178.6,85.6C-208.9,34.3,-218.9,-29.7,-196.4,-80.6C-173.9,-131.5,-118.9,-169.3,-61.5,-178.8C-4.1,-188.3,107.3,-188.1,152.8,-148.5Z" transform="scale(1.05)"/>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+          <h3 class="font-display text-white text-2xl mb-2">C.E.I. Mi pequeña casa I</h3>
+          <p class="font-body text-white/95 text-sm flex items-center gap-1.5 justify-center mb-1">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-4.5-7-8-7-11a7 7 0 1114 0c0 3-2.5 6.5-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Plaza Pintor Amalio García del Moral, 4, Loc Bajo, A y B, 41005
+          </p>
+          <p class="font-body text-white/90 text-sm flex items-center gap-1.5 justify-center">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>
+            8:00 – 17:00
+          </p>
+        </div>
+      </a>
+
+      <!-- Centro 4 - Bellavista - Sea -->
+      <a href="plantilla-centro.html" class="blob-card aspect-square block group focus:outline-none focus-visible:ring-4 focus-visible:ring-tangerine/40">
+        <svg viewBox="-200 -200 400 400" class="absolute inset-0 w-full h-full overflow-visible">
+          <path fill="#6698CC" d="M129.5,-133.3C167.3,-97.6,187.6,-43.3,183.1,9.8C178.6,62.9,149.3,114.8,103.5,149.3C57.7,183.8,-4.6,200.9,-59.8,186.2C-115,171.5,-163.1,125.1,-186.8,70.5C-210.5,15.9,-209.8,-46.9,-182.2,-96.2C-154.6,-145.5,-100.1,-181.3,-45.5,-186C9.1,-190.7,91.7,-169,129.5,-133.3Z" transform="scale(1.05)"/>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
+          <h3 class="font-display text-white text-2xl mb-2">C.E.I. Mi pequeña casa II</h3>
+          <p class="font-body text-white/95 text-sm flex items-center gap-1.5 justify-center mb-1">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-4.5-7-8-7-11a7 7 0 1114 0c0 3-2.5 6.5-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Avda. de Jerez, 102 — 41014
+          </p>
+          <p class="font-body text-white/90 text-sm flex items-center gap-1.5 justify-center">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/></svg>
+            7:30 – 18:00
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERÍA ============ -->
+<section class="relative py-24 px-6 md:px-10 bg-transparent">
+  <div class="max-w-6xl mx-auto">
+    <div class="max-w-2xl mb-16 mx-auto text-center">
+      <span class="font-body font-bold text-matcha tracking-wide uppercase text-sm">Un vistazo por dentro</span>
+      <h2 class="font-display text-3xl md:text-5xl text-gray-800 mt-2 leading-tight">
+        Días llenos de color
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+
+      <div class="gallery-item aspect-[4/5] md:translate-y-6" style="clip-path: polygon(12% 0%, 88% 4%, 100% 22%, 96% 82%, 82% 100%, 14% 96%, 0% 78%, 4% 16%);">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=800&q=80" alt="Niño pintando con las manos">
+      </div>
+
+      <div class="gallery-item aspect-square" style="clip-path: polygon(20% 0%, 80% 0%, 100% 30%, 100% 80%, 75% 100%, 25% 100%, 0% 70%, 0% 25%);">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1571210862729-78a52d3779a2?auto=format&fit=crop&w=800&q=80" alt="Aula de infantil con material didáctico">
+      </div>
+
+      <div class="gallery-item aspect-[4/5] md:-translate-y-8" style="clip-path: polygon(10% 4%, 92% 0%, 100% 40%, 90% 96%, 60% 100%, 8% 92%, 0% 55%, 6% 18%);">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=800&q=80" alt="Niños jugando en el aula">
+      </div>
+
+      <div class="gallery-item aspect-square md:translate-y-10" style="clip-path: polygon(0% 20%, 15% 0%, 85% 0%, 100% 18%, 100% 85%, 80% 100%, 10% 100%, 0% 78%);">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80" alt="Niños jugando al aire libre">
+      </div>
+
+      <div class="gallery-item aspect-[4/5]" style="clip-path: polygon(18% 0%, 82% 6%, 100% 32%, 94% 90%, 70% 100%, 20% 98%, 0% 62%, 2% 22%);">
+        <img class="gallery-img" src="imagenes/4-5.jpg" alt="Manos de niños con pintura de colores">
+      </div>
+
+      <div class="gallery-item aspect-square md:-translate-y-4" style="clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%); border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;">
+        <img class="gallery-img" src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80" alt="Patio de escuela infantil">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO / WHATSAPP ============ -->
+<section id="contacto" class="relative pt-2 pb-0">
+  <svg class="w-full block" viewBox="0 0 1200 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:-2px;">
+    <path d="M0,40 C150,90 350,0 600,45 C850,90 1050,10 1200,50 L1200,100 L0,100 Z" fill="#B4B534" fill-opacity="0.18"/>
+    <path d="M0,60 C200,100 400,20 600,60 C800,100 1000,30 1200,65 L1200,100 L0,100 Z" fill="#F2D88F"/>
+  </svg>
+
+  <div class="bg-butter px-6 md:px-10 pt-4 pb-8 md:pb-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="font-body font-bold text-tangerine tracking-wide uppercase text-sm">Te esperamos</span>
+      <h2 class="font-display text-3xl md:text-5xl text-gray-800 mt-3 mb-5 leading-tight">
+        ¿Le buscas cole a tu peque?
+      </h2>
+      <p class="font-body text-gray-700 text-lg mb-10 max-w-xl mx-auto">
+        Escríbenos por WhatsApp y te contamos plazas disponibles, precios y te
+        invitamos a conocer el centro más cercano a casa. Sin compromiso.
+      </p>
+      
+      <a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Manchitas"
+         target="_blank" rel="noopener"
+         class="animate-pulse inline-flex items-center gap-3 bg-[#25D366] text-white font-display text-xl md:text-2xl px-10 md:px-14 py-6 rounded-[3rem] shadow-2xl hover:scale-105 transition-transform duration-300">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.07L2 22l5.2-1.36a9.87 9.87 0 004.84 1.24h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2m0 1.8c2.16 0 4.19.84 5.72 2.37a8.03 8.03 0 012.36 5.72c0 4.46-3.63 8.1-8.1 8.1a8.1 8.1 0 01-4.12-1.13l-.3-.17-3.09.81.82-3-.19-.31a8.06 8.06 0 01-1.24-4.3c0-4.47 3.64-8.09 8.14-8.09m-4.45 4.62c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.14 3.64.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42h-.47z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+      <!-- ============ COLABORADORES ============ -->
+      <div class="mt-16 pt-10 border-t border-gray-800/10">
+        <p class="font-body font-semibold text-gray-600 text-sm uppercase tracking-widest mb-7">
+          Colaboradores
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-8">
+ 
+          <div class="bg-white/95 px-16 py-10 shadow-lg flex items-center justify-center" style="border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;">
+            <img src="imagenes/edenred.png" alt="Logotipo de Edenred" class="h-14 md:h-20 object-contain"
+                 onerror="this.replaceWith(Object.assign(document.createElement('span'), {className:'font-display text-gray-700 text-lg md:text-xl tracking-wide', textContent:'EDENRED'}))">
+          </div>
+ 
+          <div class="bg-white/95 px-16 py-10 shadow-lg flex items-center justify-center" style="border-radius: 58% 42% 39% 61% / 55% 48% 52% 45%;">
+            <img src="imagenes/pluxee.png" alt="Logotipo de Pluxee" class="h-14 md:h-20 object-contain"
+                 onerror="this.replaceWith(Object.assign(document.createElement('span'), {className:'font-display text-gray-700 text-lg md:text-xl tracking-wide', textContent:'Pluxee'}))">
+          </div>
+ 
+          <div class="bg-white/95 px-16 py-10 shadow-lg flex items-center justify-center" style="border-radius: 39% 61% 55% 45% / 42% 58% 42% 58%;">
+            <img src="imagenes/sodexo.webp" alt="Logotipo de Sodexo" class="h-14 md:h-20 object-contain"
+                 onerror="this.replaceWith(Object.assign(document.createElement('span'), {className:'font-display text-gray-700 text-lg md:text-xl tracking-wide', textContent:'Sodexo'}))">
+          </div>
+        </div>
+      </div>
+ 
+      <p class="font-body text-gray-600 mt-10 text-sm">
+        © 2026 Escuelas Infantiles · Sevilla · San Pablo · Nervión</p>
+    </div>
+  </div>
+</section>
+ 
+</body>
+</html>
